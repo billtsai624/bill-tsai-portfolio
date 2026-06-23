@@ -539,7 +539,7 @@ document.querySelectorAll('[contenteditable][data-key]').forEach(el => {
 /* ════════════════════════════════════
    IMAGE STORAGE
 ════════════════════════════════════ */
-const IMG_PFX = 'mb_img_v2_';
+const IMG_PFX = 'mb_img_v3_';
 function saveImgs(key, arr) { try { localStorage.setItem(IMG_PFX+key, JSON.stringify(arr)); } catch(e) {} }
 function loadImgs(key) { try { return JSON.parse(localStorage.getItem(IMG_PFX+key)||'null'); } catch { return null; } }
 
