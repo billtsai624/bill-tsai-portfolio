@@ -213,43 +213,6 @@ section { padding:6rem 2rem; }
   flex-shrink:0;
 }
 
-/* ── ADD PROJECT ── */
-.add-project-wrap { margin-top:3rem; }
-.add-project-btn {
-  width:100%; padding:2rem; border:2px dashed var(--teal-brd); border-radius:18px;
-  background:none; cursor:pointer; display:flex; flex-direction:column; align-items:center; gap:8px;
-  color:var(--text3); font-family:inherit; font-size:14px; font-weight:500;
-  transition:border-color 0.2s, background 0.2s, color 0.2s;
-}
-.add-project-btn:hover { border-color:var(--teal); background:var(--teal-bg); color:var(--teal); }
-.add-project-btn .plus { font-size:22px; line-height:1; }
-.add-form {
-  display:none; background:var(--card-bg); border-radius:18px;
-  padding:2rem; margin-top:1rem;
-}
-.add-form.show { display:grid; grid-template-columns:1fr 1fr; gap:2rem; }
-.form-group { margin-bottom:1rem; }
-.form-group label { display:block; font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--text3); margin-bottom:6px; }
-.form-group input, .form-group textarea {
-  width:100%; background:#fff; border:1px solid var(--teal-brd); border-radius:10px;
-  padding:10px 14px; font-size:14px; color:var(--text); font-family:inherit;
-  transition:border-color 0.2s; resize:vertical;
-}
-.form-group input:focus, .form-group textarea:focus { outline:none; border-color:var(--teal); }
-.form-group textarea { min-height:84px; }
-.form-actions { display:flex; gap:10px; margin-top:4px; flex-wrap:wrap; }
-.btn-primary {
-  background:var(--teal); color:#fff; border:none; border-radius:100px;
-  padding:10px 24px; font-size:13px; font-weight:600; cursor:pointer;
-  font-family:inherit; transition:opacity 0.2s;
-}
-.btn-primary:hover { opacity:0.82; }
-.btn-cancel {
-  background:none; color:var(--text3); border:1px solid var(--border);
-  border-radius:100px; padding:10px 20px; font-size:13px; font-weight:500;
-  cursor:pointer; font-family:inherit; transition:color 0.2s, border-color 0.2s;
-}
-.btn-cancel:hover { color:var(--teal); border-color:var(--teal-brd); }
 
 /* ── FOOTER ── */
 footer { text-align:center; padding:3.5rem 2rem; background:var(--teal); }
@@ -357,7 +320,7 @@ footer strong { color:rgba(255,255,255,0.88); }
         <div class="case-text-block">
           <p class="case-number" contenteditable="true" data-key="c2-num">Project 02</p>
           <h3 class="case-title" contenteditable="true" data-key="c2-title">Advanced Keycap Development</h3>
-          <p class="case-highlight" contenteditable="true" data-key="c2-hl">Drawing on past experience with mobile phone frames, introduced Forging and Nano Molding Technology (NMT) to develop advanced keycaps — using a transparent plastic insert to successfully balance diverse departmental needs.</p>
+          <p class="case-highlight" contenteditable="true" data-key="c2-hl">Drawing on past experience with mobile phone frames, introduced Forging and Nano Molding Technology (NMT) to develop advanced keycaps — using a transparent plastic insert to successfully balance diverse departmental needs. Additionally developed a full metal keycap featuring a polished raised G logo — elevating the overall premium feel and tactile quality.</p>
           <div class="impact-box">
             <p class="impact-label" contenteditable="true" data-key="c2-lbl">Impact</p>
             <p contenteditable="true" data-key="c2-imp">Enabled innovative backlit designs while maintaining metallic reflection. Coordinated multiple metal and plastic injection suppliers across GPM's low cost, ID's metallic feel, ME's plastic structure, and CMF's translucent letters — simultaneously.</p>
@@ -377,7 +340,7 @@ footer strong { color:rgba(255,255,255,0.88); }
           <p class="case-highlight" contenteditable="true" data-key="c3-hl">Led the "Infinity Effect" innovation project, utilizing transparent materials like PMMA combined with Inner Laser technology (green laser) to create multi-layered, floating logos and an infinite depth mirror effect.</p>
           <div class="impact-box">
             <p class="impact-label" contenteditable="true" data-key="c3-lbl">Impact</p>
-            <p contenteditable="true" data-key="c3-imp">After demonstrating prototypes on the Asuka PMMA keyboard palmrest and gaming headsets, sparked a major discussion at the 2026 CMF Summit — officially prompting the internal team to begin deeper research and incorporate Inner Laser technology into the FY29 product roadmap.</p>
+            <p contenteditable="true" data-key="c3-imp">Successfully applied the Infinity Effect on the Asuka and Quak products, sparking widespread discussion within the company. This led the internal team to begin deeper research and incorporate Inner Laser technology into the FY29 product roadmap.</p>
           </div>
         </div>
         <div class="case-carousel-block">
@@ -401,40 +364,25 @@ footer strong { color:rgba(255,255,255,0.88); }
           <div class="mc-wrap case-carousel" id="mc-c4"></div>
         </div>
       </div>
+      <div class="case-divider reveal"></div>
 
-    </div><!-- /.cases-list -->
-
-    <!-- ADD NEW PROJECT -->
-    <div class="add-project-wrap">
-      <button class="add-project-btn" id="add-proj-btn" onclick="showAddForm()">
-        <span class="plus">+</span>
-        <span>新增 Project</span>
-      </button>
-      <div class="add-form" id="add-form">
-        <div>
-          <div class="form-group">
-            <label>Project 標題</label>
-            <input type="text" id="nf-title" placeholder="e.g. Advanced Surface Finish">
-          </div>
-          <div class="form-group">
-            <label>Highlight</label>
-            <textarea id="nf-highlight" placeholder="專案亮點描述..."></textarea>
-          </div>
-          <div class="form-group">
-            <label>Impact</label>
-            <textarea id="nf-impact" placeholder="專案影響與成果..."></textarea>
-          </div>
-          <div class="form-actions">
-            <button class="btn-primary" onclick="submitNewProject()">新增到頁面</button>
-            <button class="btn-cancel" onclick="hideAddForm()">取消</button>
+      <!-- Project 05 -->
+      <div class="case-block reveal">
+        <div class="case-text-block">
+          <p class="case-number" contenteditable="true" data-key="c5-num">Project 05</p>
+          <h3 class="case-title" contenteditable="true" data-key="c5-title">Transparent Light with Inner Laser</h3>
+          <p class="case-highlight" contenteditable="true" data-key="c5-hl">Enhancing the visual effects of transparent materials by using Inner Laser technology and the principles of light-guiding. The laser-engraved pattern is embedded inside the material, amplifying the lighting effect to illuminate textures and logos — creating a sense of depth, elegance, and luxury.</p>
+          <div class="impact-box">
+            <p class="impact-label" contenteditable="true" data-key="c5-lbl">Impact</p>
+            <p contenteditable="true" data-key="c5-imp">Successfully demoed on the Foster Mini using a green laser (0.03mm focus length) on transparent materials including glass, crystal, PMMA, and PC/PET. Introduced the technology to GPM, designers, and marketing — generating broad internal interest and creating opportunities to integrate Inner Laser into NPI product roadmaps.</p>
           </div>
         </div>
-        <div>
-          <div class="form-group"><label>圖片（選填，可在新增後繼續上傳）</label></div>
-          <div class="mc-wrap case-carousel" id="mc-new" style="pointer-events:auto;"></div>
+        <div class="case-carousel-block">
+          <div class="mc-wrap case-carousel" id="mc-c5"></div>
         </div>
       </div>
-    </div>
+
+    </div><!-- /.cases-list -->
 
   </div>
 </section>
@@ -666,7 +614,7 @@ const STATIC_IMGS = {
     'images/hero1.jpg','images/hero2.jpg','images/hero3.jpg',
     'images/hero4.jpg','images/hero5.jpg','images/hero6.jpg',
     'images/hero7.jpg','images/hero8.jpg','images/hero9.jpg',
-    'images/hero10.jpg',
+    'images/hero10.jpg','images/hero11.jpg','images/hero12.jpg',
   ],
   c1: [
     'images/project1a.jpg','images/project1b.jpg','images/project1c.jpg',
@@ -684,6 +632,10 @@ const STATIC_IMGS = {
     'images/project4a.jpg','images/project4b.jpg','images/project4c.jpg',
     'images/project4d.jpg','images/project4e.jpg',
   ],
+  c5: [
+    'images/project5a.jpg','images/project5b.jpg','images/project5c.jpg',
+    'images/project5d.jpg','images/project5e.jpg',
+  ],
 };
 
 /* ════════════════════════════════════
@@ -695,6 +647,7 @@ const carousels = {
   c2:   new MiniCarousel(document.getElementById('mc-c2'),   'Project 02', 'c2'),
   c3:   new MiniCarousel(document.getElementById('mc-c3'),   'Project 03', 'c3'),
   c4:   new MiniCarousel(document.getElementById('mc-c4'),   'Project 04', 'c4'),
+  c5:   new MiniCarousel(document.getElementById('mc-c5'),   'Project 05', 'c5'),
 };
 
 // 載入靜態圖片（只在 localStorage 無資料時套用）
@@ -713,71 +666,6 @@ Object.entries(STATIC_IMGS).forEach(([key, urls]) => {
   });
   mc._update(); mc._startAuto();
 });
-let newCarousel = null;
-
-/* ════════════════════════════════════
-   ADD NEW PROJECT
-════════════════════════════════════ */
-let projCount = 4;
-
-function showAddForm() {
-  document.getElementById('add-proj-btn').style.display='none';
-  document.getElementById('add-form').classList.add('show');
-  if (!newCarousel) {
-    newCarousel = new MiniCarousel(document.getElementById('mc-new'), 'Project image', '__new__');
-  }
-}
-function hideAddForm() {
-  document.getElementById('add-form').classList.remove('show');
-  document.getElementById('add-proj-btn').style.display='';
-}
-function submitNewProject() {
-  const title     = document.getElementById('nf-title').value.trim();
-  const highlight = document.getElementById('nf-highlight').value.trim();
-  const impact    = document.getElementById('nf-impact').value.trim();
-  if (!title) { alert('請填寫 Project 標題'); return; }
-  projCount++;
-  const num = String(projCount).padStart(2,'0');
-  const key = 'c'+projCount;
-  // Divider
-  const div = document.createElement('div'); div.className='case-divider'; document.getElementById('cases-list').appendChild(div);
-  // Card
-  const block = document.createElement('div'); block.className='case-block reveal';
-  block.innerHTML = `
-    <div class="case-text-block">
-      <p class="case-number" contenteditable="true" data-key="${key}-num">Project ${num}</p>
-      <h3 class="case-title" contenteditable="true" data-key="${key}-title">${title}</h3>
-      ${highlight?`<p class="case-highlight" contenteditable="true" data-key="${key}-hl">${highlight}</p>`:''}
-      ${impact?`<div class="impact-box"><p class="impact-label">Impact</p><p contenteditable="true" data-key="${key}-imp">${impact}</p></div>`:''}
-    </div>
-    <div class="case-carousel-block">
-      <div class="mc-wrap case-carousel" id="mc-${key}"></div>
-    </div>`;
-  document.getElementById('cases-list').appendChild(block);
-  // Attach contenteditable saving
-  block.querySelectorAll('[contenteditable][data-key]').forEach(el=>{
-    let t; el.addEventListener('input',()=>{ clearTimeout(t); t=setTimeout(()=>{ saveText(el.dataset.key,el.innerHTML); el.classList.add('saved-flash'); setTimeout(()=>el.classList.remove('saved-flash'),600); },600); });
-  });
-  // Move images from new carousel
-  const imgSrcs = (newCarousel?.slides||[]).map(s=>s.imgEl.src).filter(Boolean);
-  carousels[key] = new MiniCarousel(document.getElementById('mc-'+key), 'Project '+num, key);
-  if (imgSrcs.length) {
-    imgSrcs.forEach((src,i)=>{
-      if(i===0){const{slotEl,imgEl}=carousels[key].slides[0];imgEl.src=src;slotEl.classList.add('filled');}
-      else carousels[key]._addSlide(false,src);
-    });
-    carousels[key]._update(); carousels[key]._startAuto(); carousels[key]._saveToStorage();
-  }
-  revealObs.observe(block);
-  block.scrollIntoView({behavior:'smooth',block:'center'});
-  // Reset form
-  document.getElementById('nf-title').value='';
-  document.getElementById('nf-highlight').value='';
-  document.getElementById('nf-impact').value='';
-  newCarousel = null;
-  document.getElementById('mc-new').innerHTML='';
-  hideAddForm();
-}
 </script>
 </body>
 </html>
