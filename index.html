@@ -159,6 +159,22 @@ section { padding:6rem 2rem; }
 }
 
 
+/* ── LIGHTBOX ── */
+.lb-overlay {
+  display:none; position:fixed; inset:0; z-index:1000;
+  background:rgba(0,0,0,0.88); align-items:center; justify-content:center;
+  cursor:zoom-out;
+}
+.lb-overlay.open { display:flex; }
+.lb-img-wrap { position:relative; max-width:92vw; max-height:92vh; }
+.lb-img-wrap img { display:block; max-width:92vw; max-height:92vh; border-radius:10px; box-shadow:0 8px 60px rgba(0,0,0,0.6); object-fit:contain; }
+.lb-close {
+  position:absolute; top:-16px; right:-16px;
+  width:36px; height:36px; border-radius:50%; border:none;
+  background:#fff; color:#000; font-size:20px; line-height:36px; text-align:center;
+  cursor:pointer; box-shadow:0 2px 10px rgba(0,0,0,0.3);
+}
+
 /* ── FOOTER ── */
 footer { text-align:center; padding:3.5rem 2rem; background:var(--teal); }
 footer p { font-size:14px; color:rgba(255,255,255,0.55); letter-spacing:-0.01em; }
@@ -180,6 +196,14 @@ footer strong { color:rgba(255,255,255,0.88); }
 </style>
 </head>
 <body>
+
+<!-- LIGHTBOX -->
+<div class="lb-overlay" id="lb-overlay">
+  <div class="lb-img-wrap">
+    <button class="lb-close" id="lb-close">×</button>
+    <img id="lb-img" src="" alt="preview">
+  </div>
+</div>
 
 <!-- HERO -->
 <section class="hero" id="top">
@@ -472,6 +496,32 @@ const STATIC_IMGS = {
 /* ════════════════════════════════════
    INIT CAROUSELS
 ════════════════════════════════════ */
+/* ════════════════════════════════════
+   LIGHTBOX
+════════════════════════════════════ */
+const lbOverlay = document.getElementById('lb-overlay');
+const lbImg     = document.getElementById('lb-img');
+const lbClose   = document.getElementById('lb-close');
+
+function openLightbox(src) {
+  lbImg.src = src;
+  lbOverlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  lbOverlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+lbOverlay.addEventListener('click', e => { if (e.target !== lbImg) closeLightbox(); });
+lbClose.addEventListener('click', closeLightbox);
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+// attach click to all carousel images (delegated, runs after carousels init)
+document.addEventListener('click', e => {
+  const img = e.target.closest('.mc-img');
+  if (img) openLightbox(img.src);
+});
+
 new MiniCarousel(document.getElementById('mc-hero'), STATIC_IMGS.hero);
 new MiniCarousel(document.getElementById('mc-c1'),   STATIC_IMGS.c1);
 new MiniCarousel(document.getElementById('mc-c2'),   STATIC_IMGS.c2);
