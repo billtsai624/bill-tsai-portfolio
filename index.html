@@ -22,7 +22,6 @@
   --border2:rgba(0,0,0,0.06);
   --card-bg:#D6F5F0;
   --card-hov:#b8e8e2;
-  --case-img-h:380px;
 }
 html { scroll-behavior:smooth; }
 body {
@@ -50,40 +49,16 @@ body {
 }
 .mc-wrap.hero-carousel { width:min(1100px,96vw); }
 .mc-wrap.hero-carousel .mc-viewport {
-  height:600px; min-height:200px; max-height:90vh;
+  height:900px; max-height:90vh;
   border-radius:26px; box-shadow:0 8px 60px rgba(13,58,56,0.15);
 }
 .mc-wrap.case-carousel .mc-viewport {
-  height:var(--case-img-h); min-height:120px; max-height:80vh;
+  height:571px; max-height:80vh;
   border-radius:18px; box-shadow:0 4px 32px rgba(13,58,56,0.08);
 }
 .mc-track { display:flex; height:100%; transition:transform 0.5s cubic-bezier(0.4,0,0.2,1); }
 .mc-slide { flex:0 0 100%; height:100%; position:relative; overflow:hidden; }
-.mc-slide .up-slot {
-  position:absolute; inset:0; cursor:pointer;
-  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.35rem;
-  background:var(--teal-bg); border:1.5px dashed var(--teal-brd);
-  transition:background 0.2s, border-color 0.2s;
-}
-.mc-slide .up-slot:hover { background:rgba(13,58,56,0.13); border-color:var(--teal); }
-.mc-slide .up-slot:hover .up-icon { opacity:0.75; }
-.mc-slide .up-slot:hover .up-lbl { color:var(--teal); }
-.up-icon { opacity:0.28; transition:opacity 0.2s; }
-.up-icon svg { width:40px; height:40px; stroke:var(--teal); fill:none; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; }
-.up-lbl { font-size:13px; font-weight:500; color:var(--text3); letter-spacing:-0.01em; transition:color 0.2s; margin-top:4px; }
-.up-hint { font-size:10px; color:var(--text3); opacity:0.45; }
-.up-slot.filled .up-icon, .up-slot.filled .up-lbl, .up-slot.filled .up-hint { display:none; }
-.mc-img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:none; }
-.up-slot.filled .mc-img { display:block; }
-.mc-rm {
-  display:none; position:absolute; top:8px; right:8px; z-index:20;
-  width:26px; height:26px; border-radius:50%;
-  background:rgba(255,255,255,0.92); border:1px solid var(--border);
-  align-items:center; justify-content:center;
-  cursor:pointer; font-size:13px; color:var(--text2); transition:color 0.15s;
-}
-.up-slot.filled .mc-rm { display:flex; }
-.mc-rm:hover { color:#c00; }
+.mc-img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
 .mc-arrow {
   position:absolute; top:50%; transform:translateY(-50%); z-index:15;
   width:42px; height:42px; border-radius:50%;
@@ -102,40 +77,10 @@ body {
   font-size:13px; font-weight:500; color:rgba(0,0,0,0.4);
   pointer-events:none; letter-spacing:-0.01em;
 }
-.mc-footer { display:flex; align-items:center; justify-content:center; gap:10px; margin-top:10px; flex-wrap:wrap; }
+.mc-footer { display:flex; align-items:center; justify-content:center; margin-top:10px; }
 .mc-dots { display:flex; gap:5px; align-items:center; }
 .mc-dot { width:7px; height:7px; border-radius:50%; background:var(--bg3); cursor:pointer; transition:background 0.22s, transform 0.22s; }
 .mc-dot.active { background:var(--teal); transform:scale(1.3); }
-.mc-add {
-  display:inline-flex; align-items:center; gap:5px;
-  background:none; border:1px solid var(--teal-brd); border-radius:100px;
-  padding:5px 13px; font-size:11px; font-weight:500; color:var(--teal);
-  cursor:pointer; transition:background 0.18s, border-color 0.18s;
-}
-.mc-add:hover { background:var(--teal-bg); border-color:var(--teal); }
-.mc-add svg { width:12px; height:12px; stroke:var(--teal); fill:none; stroke-width:2.2; stroke-linecap:round; }
-.mc-resize-handle {
-  position:absolute; bottom:0; right:0; z-index:30;
-  width:28px; height:28px; cursor:se-resize;
-  display:flex; align-items:flex-end; justify-content:flex-end; padding:5px;
-}
-.mc-resize-handle svg { width:14px; height:14px; stroke:rgba(0,0,0,0.28); fill:none; stroke-width:2; stroke-linecap:round; transition:stroke 0.2s; pointer-events:none; }
-.mc-resize-handle:hover svg { stroke:var(--teal); }
-.mc-resize-w {
-  position:absolute; top:50%; right:-6px; transform:translateY(-50%);
-  z-index:30; width:12px; height:48px; cursor:ew-resize;
-  display:flex; align-items:center; justify-content:center;
-}
-.mc-resize-w::before { content:''; width:4px; height:32px; border-radius:2px; background:rgba(0,0,0,0.15); transition:background 0.2s; }
-.mc-resize-w:hover::before { background:var(--teal); }
-.case-height-grip {
-  display:flex; align-items:center; justify-content:center;
-  gap:8px; margin-top:8px; cursor:ns-resize; padding:4px 0;
-  color:var(--text3); font-size:11px; font-weight:500; letter-spacing:-0.01em; user-select:none;
-}
-.case-height-grip .grip-bar { width:40px; height:4px; border-radius:2px; background:var(--bg3); transition:background 0.2s; }
-.case-height-grip:hover .grip-bar { background:var(--teal); }
-.case-height-grip:hover { color:var(--teal); }
 
 .layer-line { width:100%; height:1px; background:var(--border2); }
 
@@ -306,11 +251,6 @@ footer strong { color:rgba(255,255,255,0.88); }
         </div>
         <div class="case-carousel-block">
           <div class="mc-wrap case-carousel" id="mc-c1"></div>
-          <div class="case-height-grip" id="case-grip">
-            <div class="grip-bar"></div>
-            <span>Drag to resize all project images</span>
-            <div class="grip-bar"></div>
-          </div>
         </div>
       </div>
       <div class="case-divider reveal"></div>
@@ -433,87 +373,21 @@ document.querySelectorAll('[contenteditable][data-key]').forEach(el => {
 });
 
 /* ════════════════════════════════════
-   IMAGE STORAGE
-════════════════════════════════════ */
-const IMG_PFX = 'mb_img_v3_';
-function saveImgs(key, arr) { try { localStorage.setItem(IMG_PFX+key, JSON.stringify(arr)); } catch(e) {} }
-function loadImgs(key) { try { return JSON.parse(localStorage.getItem(IMG_PFX+key)||'null'); } catch { return null; } }
-
-/* ════════════════════════════════════
-   SHARED CASE HEIGHT
-════════════════════════════════════ */
-function setCaseH(h) {
-  document.documentElement.style.setProperty('--case-img-h', h+'px');
-  try { localStorage.setItem('mb_case_h2', h); } catch {}
-}
-const _sh = parseInt(localStorage.getItem('mb_case_h2'));
-if (_sh > 100) setCaseH(_sh);
-const grip = document.getElementById('case-grip');
-if (grip) {
-  let sy, sh;
-  grip.addEventListener('mousedown', e => {
-    e.preventDefault(); sy = e.clientY;
-    sh = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--case-img-h'))||380;
-    document.body.style.userSelect = 'none'; document.body.style.cursor = 'ns-resize';
-    const mv = e => setCaseH(Math.max(120, Math.min(window.innerHeight*0.88, sh+(e.clientY-sy))));
-    const up = () => { document.removeEventListener('mousemove',mv); document.removeEventListener('mouseup',up); document.body.style.userSelect=''; document.body.style.cursor=''; };
-    document.addEventListener('mousemove', mv); document.addEventListener('mouseup', up);
-  });
-}
-
-/* ════════════════════════════════════
    MINI CAROUSEL CLASS
 ════════════════════════════════════ */
-const UP_ICON = `<svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>`;
-const MAX_SLIDES = 200;
-
 class MiniCarousel {
-  constructor(wrapEl, label, storeKey) {
-    this.wrap = wrapEl; this.label = label; this.storeKey = storeKey;
-    this.cur = 0; this.slides = []; this._timer = null;
-    this.fileInput = document.createElement('input');
-    this.fileInput.type = 'file'; this.fileInput.accept = 'image/*';
-    this.fileInput.style.display = 'none'; this.pendingIdx = null;
-    document.body.appendChild(this.fileInput);
-    this.fileInput.addEventListener('change', () => this._onFile());
-    this._build(); this._loadFromStorage();
+  constructor(wrapEl, imgs) {
+    this.wrap = wrapEl; this.imgs = imgs; this.cur = 0; this._timer = null;
+    this._build();
   }
-  _initHeightResize() {
-    let sy, sh;
-    const mv = e => {
-      const dy = (e.touches?e.touches[0].clientY:e.clientY)-sy;
-      this.viewport.style.height = Math.max(160, Math.min(window.innerHeight*0.9, sh+dy))+'px';
-    };
-    const up = () => {
-      document.removeEventListener('mousemove',mv); document.removeEventListener('mouseup',up);
-      document.removeEventListener('touchmove',mv); document.removeEventListener('touchend',up);
-      document.body.style.userSelect=''; document.body.style.cursor='';
-    };
-    this._resizeH.addEventListener('mousedown', e => {
-      e.preventDefault(); e.stopPropagation();
-      sy=e.clientY; sh=this.viewport.offsetHeight;
-      document.body.style.userSelect='none'; document.body.style.cursor='se-resize';
-      document.addEventListener('mousemove',mv); document.addEventListener('mouseup',up);
-    });
-  }
-  _initWidthResize() {
-    let sx, sw;
-    const mv = e => {
-      this.wrap.style.width = Math.max(300, Math.min(window.innerWidth*0.98, sw+(e.clientX-sx)))+'px';
-    };
-    const up = () => { document.removeEventListener('mousemove',mv); document.removeEventListener('mouseup',up); document.body.style.userSelect=''; document.body.style.cursor=''; };
-    this._resizeW.addEventListener('mousedown', e => {
-      e.preventDefault(); sx=e.clientX; sw=this.wrap.offsetWidth;
-      document.body.style.userSelect='none'; document.body.style.cursor='ew-resize';
-      document.addEventListener('mousemove',mv); document.addEventListener('mouseup',up);
-    });
-  }
-  _startAuto() { this._stopAuto(); if (this.slides.length<2) return; this._timer = setInterval(()=>this._goto((this.cur+1)%this.slides.length),5000); }
-  _stopAuto()  { if (this._timer) { clearInterval(this._timer); this._timer=null; } }
-  _resetAuto() { this._stopAuto(); this._startAuto(); }
   _build() {
     this.viewport = document.createElement('div'); this.viewport.className='mc-viewport';
     this.track = document.createElement('div'); this.track.className='mc-track';
+    this.imgs.forEach((src, i) => {
+      const slide = document.createElement('div'); slide.className='mc-slide';
+      const img = document.createElement('img'); img.className='mc-img'; img.src=src; img.alt='image '+(i+1);
+      slide.appendChild(img); this.track.appendChild(slide);
+    });
     this.viewport.appendChild(this.track);
     this.viewport.addEventListener('mouseenter', ()=>this._stopAuto());
     this.viewport.addEventListener('mouseleave', ()=>this._startAuto());
@@ -523,26 +397,18 @@ class MiniCarousel {
     this.counterEl = document.createElement('span'); this.counterEl.className='mc-counter';
     this.viewport.appendChild(this.counterEl);
     this.wrap.appendChild(this.viewport);
-    this._resizeH = document.createElement('div');
-    this._resizeH.className='mc-resize-handle'; this._resizeH.title='拖曳調整高度';
-    this._resizeH.innerHTML=`<svg viewBox="0 0 14 14"><line x1="2" y1="12" x2="12" y2="2"/><line x1="7" y1="12" x2="12" y2="7"/></svg>`;
-    this.viewport.appendChild(this._resizeH); this._initHeightResize();
-    if (this.wrap.classList.contains('hero-carousel')) {
-      this._resizeW = document.createElement('div'); this._resizeW.className='mc-resize-w';
-      this._resizeW.title='拖曳調整寬度'; this.wrap.style.position='relative';
-      this.wrap.appendChild(this._resizeW); this._initWidthResize();
-    }
     this.footer = document.createElement('div'); this.footer.className='mc-footer';
     this.dotsEl = document.createElement('div'); this.dotsEl.className='mc-dots';
-    this.addBtn = document.createElement('button'); this.addBtn.className='mc-add';
-    this.addBtn.innerHTML=`<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Add photo`;
-    this.addBtn.addEventListener('click', ()=>this._addSlide());
-    this.footer.appendChild(this.dotsEl); this.footer.appendChild(this.addBtn);
+    this.imgs.forEach((_, i) => {
+      const dot = document.createElement('div'); dot.className='mc-dot';
+      dot.addEventListener('click', ()=>this._goto(i)); this.dotsEl.appendChild(dot);
+    });
+    this.footer.appendChild(this.dotsEl);
     this.wrap.appendChild(this.footer);
     let sx=0;
     this.viewport.addEventListener('touchstart', e=>{sx=e.changedTouches[0].clientX;},{passive:true});
-    this.viewport.addEventListener('touchend',   e=>{const dx=e.changedTouches[0].clientX-sx; if(Math.abs(dx)>36)this._move(dx<0?1:-1);});
-    this._addSlide(true);
+    this.viewport.addEventListener('touchend', e=>{const dx=e.changedTouches[0].clientX-sx; if(Math.abs(dx)>36)this._move(dx<0?1:-1);});
+    this._update(); this._startAuto();
   }
   _arrow(cls, pts) {
     const btn = document.createElement('button');
@@ -551,55 +417,20 @@ class MiniCarousel {
     btn.addEventListener('click', ()=>this._move(cls==='prev'?-1:1));
     return btn;
   }
-  _addSlide(first=false, preloadSrc=null) {
-    if (this.slides.length>=MAX_SLIDES) return;
-    const idx = this.slides.length;
-    const slide = document.createElement('div'); slide.className='mc-slide';
-    const slot  = document.createElement('div'); slot.className='up-slot';
-    slot.innerHTML=`<div class="up-icon">${UP_ICON}</div><span class="up-lbl">${first?'Click to add '+this.label:'Add photo'}</span><span class="up-hint">JPG · PNG · WEBP</span>`;
-    slot.addEventListener('click', ()=>{ this.pendingIdx=idx; this.fileInput.click(); });
-    const img = document.createElement('img'); img.className='mc-img'; img.alt=this.label+' '+(idx+1);
-    slot.appendChild(img);
-    const rm = document.createElement('button'); rm.className='mc-rm'; rm.textContent='✕';
-    rm.addEventListener('click', e=>{ e.stopPropagation(); this._removeImg(idx); });
-    slot.appendChild(rm); slide.appendChild(slot); this.track.appendChild(slide);
-    const dot = document.createElement('div'); dot.className='mc-dot';
-    dot.addEventListener('click', ()=>this._goto(idx)); this.dotsEl.appendChild(dot);
-    this.slides.push({slotEl:slot, imgEl:img, dotEl:dot});
-    if (preloadSrc) { img.src=preloadSrc; slot.classList.add('filled'); }
-    if (!first) { this._goto(idx); this._startAuto(); } else this._update();
-  }
-  _onFile() {
-    const file=this.fileInput.files[0]; if(!file||this.pendingIdx===null) return;
-    const idx=this.pendingIdx;
-    const reader=new FileReader();
-    reader.onload=e=>{ const{slotEl,imgEl}=this.slides[idx]; imgEl.src=e.target.result; slotEl.classList.add('filled'); this._update(); this._startAuto(); this._saveToStorage(); };
-    reader.readAsDataURL(file); this.fileInput.value=''; this.pendingIdx=null;
-  }
-  _removeImg(idx) { const{slotEl,imgEl}=this.slides[idx]; imgEl.src=''; slotEl.classList.remove('filled'); this._saveToStorage(); }
-  _move(dir) { this._resetAuto(); this._goto(this.cur+dir); }
-  _goto(idx) { this.cur=Math.max(0,Math.min(idx,this.slides.length-1)); this._update(); }
+  _startAuto() { this._stopAuto(); if(this.imgs.length<2) return; this._timer=setInterval(()=>this._goto((this.cur+1)%this.imgs.length),5000); }
+  _stopAuto()  { if(this._timer){clearInterval(this._timer);this._timer=null;} }
+  _move(dir)   { this._stopAuto(); this._goto(this.cur+dir); this._startAuto(); }
+  _goto(idx)   { this.cur=Math.max(0,Math.min(idx,this.imgs.length-1)); this._update(); }
   _update() {
-    const n=this.slides.length;
+    const n=this.imgs.length;
     this.track.style.transform=`translateX(-${this.cur*100}%)`;
     this.counterEl.textContent=n>1?`${this.cur+1} / ${n}`:'';
-    this.slides.forEach(({dotEl},i)=>dotEl.classList.toggle('active',i===this.cur));
+    this.dotsEl.querySelectorAll('.mc-dot').forEach((d,i)=>d.classList.toggle('active',i===this.cur));
     this.prevBtn.toggleAttribute('disabled',this.cur===0);
     this.nextBtn.toggleAttribute('disabled',this.cur===n-1);
     this.prevBtn.style.display=n>1?'':'none';
     this.nextBtn.style.display=n>1?'':'none';
-    this.dotsEl.style.display =n>1?'':'none';
-    this.addBtn.style.display =n>=MAX_SLIDES?'none':'';
-  }
-  _saveToStorage() { saveImgs(this.storeKey, this.slides.map(s=>s.imgEl.src||null)); }
-  _loadFromStorage() {
-    const saved=loadImgs(this.storeKey); if(!saved||!saved.length) return;
-    saved.forEach((src,idx)=>{
-      if(!src) return;
-      if(idx===0){const{slotEl,imgEl}=this.slides[0];imgEl.src=src;slotEl.classList.add('filled');}
-      else this._addSlide(false,src);
-    });
-    this._update(); this._startAuto();
+    this.dotsEl.style.display=n>1?'':'none';
   }
 }
 
@@ -641,31 +472,12 @@ const STATIC_IMGS = {
 /* ════════════════════════════════════
    INIT CAROUSELS
 ════════════════════════════════════ */
-const carousels = {
-  hero: new MiniCarousel(document.getElementById('mc-hero'), 'hero image', 'hero'),
-  c1:   new MiniCarousel(document.getElementById('mc-c1'),   'Project 01', 'c1'),
-  c2:   new MiniCarousel(document.getElementById('mc-c2'),   'Project 02', 'c2'),
-  c3:   new MiniCarousel(document.getElementById('mc-c3'),   'Project 03', 'c3'),
-  c4:   new MiniCarousel(document.getElementById('mc-c4'),   'Project 04', 'c4'),
-  c5:   new MiniCarousel(document.getElementById('mc-c5'),   'Project 05', 'c5'),
-};
-
-// 載入靜態圖片（只在 localStorage 無資料時套用）
-Object.entries(STATIC_IMGS).forEach(([key, urls]) => {
-  if (!urls.length) return;
-  const saved = loadImgs(key);
-  if (saved && saved.some(Boolean)) return; // 已有本地資料，跳過
-  const mc = carousels[key];
-  urls.forEach((src, i) => {
-    if (i === 0) {
-      mc.slides[0].imgEl.src = src;
-      mc.slides[0].slotEl.classList.add('filled');
-    } else {
-      mc._addSlide(false, src);
-    }
-  });
-  mc._update(); mc._startAuto();
-});
+new MiniCarousel(document.getElementById('mc-hero'), STATIC_IMGS.hero);
+new MiniCarousel(document.getElementById('mc-c1'),   STATIC_IMGS.c1);
+new MiniCarousel(document.getElementById('mc-c2'),   STATIC_IMGS.c2);
+new MiniCarousel(document.getElementById('mc-c3'),   STATIC_IMGS.c3);
+new MiniCarousel(document.getElementById('mc-c4'),   STATIC_IMGS.c4);
+new MiniCarousel(document.getElementById('mc-c5'),   STATIC_IMGS.c5);
 </script>
 </body>
 </html>
