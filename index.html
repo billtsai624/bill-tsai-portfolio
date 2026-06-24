@@ -397,6 +397,25 @@ document.querySelectorAll('[contenteditable][data-key]').forEach(el => {
 });
 
 /* ════════════════════════════════════
+   LIGHTBOX
+════════════════════════════════════ */
+const lbOverlay = document.getElementById('lb-overlay');
+const lbImg     = document.getElementById('lb-img');
+const lbClose   = document.getElementById('lb-close');
+function openLightbox(src) {
+  lbImg.src = src;
+  lbOverlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  lbOverlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+lbOverlay.addEventListener('click', e => { if (e.target !== lbImg) closeLightbox(); });
+lbClose.addEventListener('click', closeLightbox);
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+/* ════════════════════════════════════
    MINI CAROUSEL CLASS
 ════════════════════════════════════ */
 class MiniCarousel {
@@ -410,6 +429,8 @@ class MiniCarousel {
     this.imgs.forEach((src, i) => {
       const slide = document.createElement('div'); slide.className='mc-slide';
       const img = document.createElement('img'); img.className='mc-img'; img.src=src; img.alt='image '+(i+1);
+      img.style.cursor = 'zoom-in';
+      img.addEventListener('click', () => openLightbox(img.src));
       slide.appendChild(img); this.track.appendChild(slide);
     });
     this.viewport.appendChild(this.track);
@@ -496,32 +517,6 @@ const STATIC_IMGS = {
 /* ════════════════════════════════════
    INIT CAROUSELS
 ════════════════════════════════════ */
-/* ════════════════════════════════════
-   LIGHTBOX
-════════════════════════════════════ */
-const lbOverlay = document.getElementById('lb-overlay');
-const lbImg     = document.getElementById('lb-img');
-const lbClose   = document.getElementById('lb-close');
-
-function openLightbox(src) {
-  lbImg.src = src;
-  lbOverlay.classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closeLightbox() {
-  lbOverlay.classList.remove('open');
-  document.body.style.overflow = '';
-}
-lbOverlay.addEventListener('click', e => { if (e.target !== lbImg) closeLightbox(); });
-lbClose.addEventListener('click', closeLightbox);
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
-
-// attach click to all carousel images (delegated, runs after carousels init)
-document.addEventListener('click', e => {
-  const img = e.target.closest('.mc-img');
-  if (img) openLightbox(img.src);
-});
-
 new MiniCarousel(document.getElementById('mc-hero'), STATIC_IMGS.hero);
 new MiniCarousel(document.getElementById('mc-c1'),   STATIC_IMGS.c1);
 new MiniCarousel(document.getElementById('mc-c2'),   STATIC_IMGS.c2);
